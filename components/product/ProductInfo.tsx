@@ -1,81 +1,59 @@
 "use client";
 
 import { useCart } from "@/lib/cart-context";
-import { motion, useAnimation } from "framer-motion";
-import { useRef } from "react";
-import Image from "next/image";
 
-export default function ProductInfo() {
+type Product = {
+  name: string;
+  price: number;
+  slug: {
+    current: string;
+  };
+  image: string;
+  category?: string;
+};
 
-  const { addToCart } = useCart();
+export default function ProductInfo({ product }: { product: Product }) {
 
-  const controls = useAnimation();
-  const imgRef = useRef(null);
+  const { addItem } = useCart();
 
-  async function handleAddToCart() {
-
-    await controls.start({
-      scale: 0.7,
-      opacity: 0.5,
-      y: -50,
-      transition: { duration: 0.3 }
+  function handleAddToCart() {
+    addItem({
+      id: product.slug.current,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: 1,
     });
-
-    addToCart({
-      id: "lotus-basin",
-      name: "Lotus Luxe Basin",
-      price: 28000,
-      image: "/images/basin.jpg",
-      quantity: 1
-    });
-
-    controls.start({
-      scale: 1,
-      opacity: 1,
-      y: 0
-    });
-
   }
 
   return (
 
-    <div className="flex flex-col justify-center gap-8">
+    <div className="space-y-6">
 
-      {/* Animated Product Image */}
-      <motion.div
-        animate={controls}
-        ref={imgRef}
+      {/* Category */}
+      {product.category && (
+        <p className="text-sm tracking-widest uppercase text-neutral-500">
+          {product.category}
+        </p>
+      )}
+
+      {/* Name */}
+      <h1 className="text-4xl font-light tracking-tight leading-tight">
+        {product.name}
+      </h1>
+
+      {/* Price */}
+      <p className="text-xl">
+        ₹{product.price}
+      </p>
+
+      {/* Add To Cart */}
+      <button
+        onClick={handleAddToCart}
+        className="mt-6 px-8 py-3 border border-black hover:bg-black hover:text-white transition"
       >
-        <Image
-          src="/images/basin.jpg"
-          alt="Lotus Luxe Basin"
-          width={500}
-          height={500}
-        />
-      </motion.div>
-
-      <div>
-
-        <h1 className="text-3xl font-serif mb-2">
-          Lotus Luxe Basin
-        </h1>
-
-        <p className="text-neutral-500 mb-6">
-          Marble Basin
-        </p>
-
-        <p className="text-xl mb-8">
-          ₹28,000
-        </p>
-
-        <button
-          onClick={handleAddToCart}
-          className="bg-black text-white px-8 py-4 w-fit hover:bg-neutral-800 transition"
-        >
-          Add to Cart
-        </button>
-
-      </div>
+        Add To Cart
+      </button>
 
     </div>
 

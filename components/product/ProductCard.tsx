@@ -4,13 +4,11 @@ import { urlFor } from "@/lib/sanityClient";
 
 export default function ProductCard({ product }: any) {
 
-  const imageUrl = product.image
-    ? urlFor(product.image).width(600).height(600).url()
-    : "/images/placeholder.jpg";
+  const imageUrl = product.image || "/images/placeholder.jpg";
 
   return (
 
-    <Link href={`/product/${product.slug.current}`}>
+    <Link href={`/product/${product.slug}`}>
 
       <div className="group cursor-pointer">
 

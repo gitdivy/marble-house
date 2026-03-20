@@ -1,32 +1,31 @@
-export default function ProductDetails() {
+export default function ProductDetails({ product }: any) {
   return (
-
-    <section className="mt-28 border-t pt-16">
+    <section className="mt-24 border-t pt-16">
 
       <h2 className="text-2xl font-serif mb-10">
         Details
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
 
         <div>
-          <p className="text-neutral-500">Material</p>
-          <p>Natural Marble</p>
+          <p className="text-neutral-500 mb-1">Material</p>
+          <p>{product.material || "Natural Marble"}</p>
         </div>
 
         <div>
-          <p className="text-neutral-500">Finish</p>
-          <p>Honed</p>
+          <p className="text-neutral-500 mb-1">Finish</p>
+          <p>{product.finish || "Honed"}</p>
         </div>
 
         <div>
-          <p className="text-neutral-500">Weight</p>
-          <p>8 kg</p>
+          <p className="text-neutral-500 mb-1">Weight</p>
+          <p>{product.weight || "—"}</p>
         </div>
 
         <div>
-          <p className="text-neutral-500">Origin</p>
-          <p>Rajasthan, India</p>
+          <p className="text-neutral-500 mb-1">Origin</p>
+          <p>{product.origin || "Rajasthan, India"}</p>
         </div>
 
       </div>

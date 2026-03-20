@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
     {/*Hero Section*/}
-    <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center pt-20 md:pt-0 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -16,31 +16,31 @@ export default function Home() {
           alt="Marble Sculpture"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-[60%_center] md:object-center"
       />
       </div>
       {/*<div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-transparent"/>*/}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F6F2EC] to-transparent" />
       {/* Content */}
       <div className="relative z-10 w-full px-6 md:px-20">
-        <div className="max-w-[520px]">
+        <div className="max-w-[420px] md:max-w-[520px]">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
             >
           
-        <h1 className="text-[42px] md:text-[72px] leading-[1.05] tracking-[-0.02em] text-[#1C1A18]">
+        <h1 className="text-[36px] sm:text-[42px] md:text-[72px] leading-[1.05] tracking-[-0.02em] text-[#1C1A18]">
           Stone, In Its Purest Form.
         </h1>
 
 
-        <p className="text-[16px] md:text-[17px] text-[#4B4742] leading-relaxed">
+        <p className="mt-4 text-[15px] md:text-[17px] text-[#4B4742] leading-relaxed max-w-[380px] md:max-w-none">
             Small-batch marble art crafted with timeless precision and global elegance.
         </p>
 
 
-        <button className="mt-10 inline-block text-[13px] tracking-[0.35em] uppercase border-b border-[#1C1A18] pb-2 hover:opacity-60 transition duration-300"> 
+        <button className="mt-8 md:mt-10 inline-block text-[13px] tracking-[0.35em] uppercase border-b border-[#1C1A18] pb-2 hover:opacity-60 transition duration-300"> 
            Explore Collection
         </button>
 
@@ -50,24 +50,43 @@ export default function Home() {
       </div>
     </section>
     {/*statement section*/}
-    <section className="bg-[#F6F2EC] pt-20 md:pt-28 pb-6 md:pb-10">
-  <div className="max-w-5xl mx-auto md:ml-20">
+    <section className="bg-[#F6F2EC] py-20 md:py-28">
+  <div className="max-w-4xl mx-auto px-6 md:px-20">
+
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
       viewport={{ once: true }}
->
-      <h2 className="text-[28px] md:text-[42px] leading-[1.25] tracking-[-0.01em] text-[#1C1A18] max-w-3xl">
-        Marble is not shaped by tools alone.  
+    >
+
+      <h2 className="
+      text-[26px]
+      sm:text-[30px]
+      md:text-[42px]
+      leading-[1.3]
+      tracking-[-0.01em]
+      text-[#1C1A18]
+      max-w-[640px]
+      ">
+        Marble is not shaped by tools alone.
         It is shaped by patience, by pressure, by time.
       </h2>
 
-      <p className="mt-8 text-[16px] md:text-[17px] text-[#6F6A64] leading-relaxed max-w-xl">
+      <p className="
+      mt-8
+      text-[15px]
+      md:text-[17px]
+      text-[#6F6A64]
+      leading-relaxed
+      max-w-[520px]
+      ">
         Each piece from our atelier is carved in small batches,
         refined by hand, and designed to exist beyond trend.
       </p>
+
     </motion.div>
+
   </div>
 </section>
 {/*section*/}
